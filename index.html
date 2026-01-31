@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S.K. Dietrich | Official Author Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --text: #e0e0e0;
+            --accent: #c5a059; /* Elegant Gold */
+            --card-bg: #161616;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        header {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border-bottom: 1px solid #333;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #0a0a0a 100%);
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            margin: 0;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--accent);
+            letter-spacing: 4px;
+            margin-top: 10px;
+            text-transform: uppercase;
+        }
+
+        /* Book Grid */
+        .container {
+            max-width: 1200px;
+            margin: -100px auto 100px;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .book-card {
+            background: var(--card-bg);
+            padding: 40px;
+            border: 1px solid #222;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .book-card:hover {
+            transform: translateY(-15px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+        }
+
+        .book-card img {
+            width: 200px;
+            height: 300px;
+            background: #222; /* Placeholder */
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            margin-bottom: 25px;
+            object-fit: cover;
+        }
+
+        .book-card h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .book-card p {
+            font-weight: 300;
+            text-align: center;
+            font-size: 0.95rem;
+            opacity: 0.8;
+        }
+
+        .btn {
+            margin-top: 20px;
+            padding: 10px 25px;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            transition: 0.3s;
+        }
+
+        .book-card:hover .btn {
+            background: var(--accent);
+            color: #000;
+        }
+
+        footer {
+            text-align: center;
+            padding: 60px 0;
+            font-size: 0.8rem;
+            opacity: 0.5;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="reveal">
+            <h1>S.K. Dietrich</h1>
+            <div class="subtitle">Architect of Worlds</div>
+        </div>
+    </header>
+
+    <div class="container">
+        <a href="https://skdietrich.github.io/RipperCrew/" class="book-card reveal">
+            <img src="https://via.placeholder.com/200x300?text=Ripper+Crew" alt="Ripper Crew Cover">
+            <h2>Ripper Crew</h2>
+            <p>Dive into the darkness of the crew that defied the laws of the street.</p>
+            <div class="btn">Explore Site</div>
+        </a>
+
+        <a href="https://skdietrich.github.io/books/" class="book-card reveal" style="transition-delay: 0.2s;">
+            <img src="https://via.placeholder.com/200x300?text=Anthology" alt="Books Collection Cover">
+            <h2>The Collection</h2>
+            <p>A curated archive of published works and literary journeys.</p>
+            <div class="btn">Explore Site</div>
+        </a>
+
+        <a href="https://skdietrich.github.io/cross/" class="book-card reveal" style="transition-delay: 0.4s;">
+            <img src="https://via.placeholder.com/200x300?text=Cross" alt="Cross Cover">
+            <h2>Cross</h2>
+            <p>A tale of redemption, sacrifice, and the weight of the cross.</p>
+            <div class="btn">Explore Site</div>
+        </a>
+    </div>
+
+    <footer>
+        &copy; 2024 S.K. DIETRICH. ALL RIGHTS RESERVED.
+    </footer>
+
+    <script>
+        // Professional Reveal Animation
+        ScrollReveal().reveal('.reveal', { 
+            distance: '50px',
+            duration: 1000,
+            easing: 'ease-in-out',
+            origin: 'bottom',
+            interval: 200 
+        });
+    </script>
+</body>
+</html>
