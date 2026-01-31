@@ -15,7 +15,7 @@
             --border: rgba(255, 255, 255, 0.1);
         }
 
-        * { box-sizing: border-box; }
+        * { box-sizing: border-box; scroll-behavior: smooth; }
 
         body {
             background-color: var(--bg);
@@ -28,7 +28,7 @@
 
         /* Hero Section */
         header {
-            height: 65vh;
+            height: 80vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -57,7 +57,25 @@
             font-weight: 600;
         }
 
-        /* Responsive Book Grid */
+        .hero-bio-btn {
+            margin-top: 30px;
+            padding: 10px 25px;
+            background: transparent;
+            color: var(--text);
+            border: 1px solid var(--border);
+            text-decoration: none;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .hero-bio-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* Responsive Grid */
         .container {
             max-width: 1200px;
             margin: -60px auto 60px;
@@ -70,7 +88,6 @@
         .book-card {
             background: var(--card-bg);
             backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
             padding: 40px 25px;
             border: 1px solid var(--border);
             text-decoration: none;
@@ -86,7 +103,6 @@
                 border-color: var(--accent);
                 background: rgba(212, 175, 55, 0.08);
                 transform: translateY(-15px);
-                box-shadow: 0 25px 50px rgba(0,0,0,0.5);
             }
         }
 
@@ -95,18 +111,12 @@
             height: 300px;
             margin-bottom: 25px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.7);
-            transition: transform 0.5s ease;
-        }
-
-        .book-card:hover .cover-wrapper {
-            transform: scale(1.04) rotate(-1deg);
         }
 
         .cover-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border: 1px solid rgba(255,255,255,0.05);
         }
 
         .book-card h2 {
@@ -128,7 +138,6 @@
         }
 
         .btn {
-            margin-top: auto;
             padding: 12px 35px;
             border: 1px solid var(--accent);
             color: var(--accent);
@@ -136,31 +145,25 @@
             font-size: 0.7rem;
             letter-spacing: 3px;
             font-weight: 600;
-            transition: 0.3s;
             width: 100%;
             text-align: center;
         }
 
-        .book-card:hover .btn {
-            background: var(--accent);
-            color: #000;
-        }
-
         /* About Section */
-        .about-section {
+        #biography {
             max-width: 1000px;
-            margin: 80px auto;
-            padding: 60px 20px;
+            margin: 100px auto;
+            padding: 80px 20px;
             border-top: 1px solid var(--border);
             display: grid;
             grid-template-columns: 1fr 2fr;
-            gap: 40px;
-            align-items: center;
+            gap: 50px;
+            align-items: start;
         }
 
         .about-text h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             color: var(--accent);
             margin-top: 0;
         }
@@ -169,30 +172,25 @@
             font-weight: 300;
             line-height: 1.8;
             opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .profile-container {
+            position: relative;
         }
 
         .profile-pic {
             width: 100%;
             border: 1px solid var(--accent);
             padding: 10px;
-            filter: grayscale(100%);
             transition: 0.5s;
-        }
-
-        .profile-pic:hover {
-            filter: grayscale(0%);
         }
 
         /* Mobile Adjustments */
         @media (max-width: 768px) {
-            header { height: 50vh; }
-            .container { margin-top: 20px; }
-            .about-section { 
-                grid-template-columns: 1fr; 
-                text-align: center; 
-                margin-top: 40px;
-            }
-            .profile-pic { max-width: 250px; margin: 0 auto; }
+            header { height: 60vh; }
+            #biography { grid-template-columns: 1fr; text-align: center; }
+            .profile-pic { max-width: 280px; margin: 0 auto; }
         }
 
         footer {
@@ -211,18 +209,19 @@
     <header>
         <div class="reveal">
             <h1>Stephen Dietrich-Kolokouris, PhD.</h1>
-            <div class="subtitle">Paranormal Researcher, Technologist & Author</div>
+            <div class="subtitle">Historian &bull; Researcher &bull; Author</div>
+            <a href="#biography" class="hero-bio-btn">View Biography</a>
         </div>
     </header>
 
-    <div class="container">
+    <main class="container">
         <a href="https://skdietrich.github.io/RipperCrew/" target="_blank" class="book-card reveal">
             <div class="cover-wrapper">
                 <img src="Chicago_Ripper_Crew_cover_600dpi.jpg" alt="Chicago Ripper Crew" class="cover-img">
             </div>
             <h2>Chicago Ripper Crew</h2>
-            <p>A chilling deep dive into one of the most gruesome satanic cult killing sprees in American history.</p>
-            <div class="btn">Explore Work</div>
+            <p>An investigative analysis of the gruesome satanic cult killings that shook the city of Chicago.</p>
+            <div class="btn">Explore Site</div>
         </a>
 
         <a href="https://skdietrich.github.io/books/" target="_blank" class="book-card reveal" style="transition-delay: 0.2s;">
@@ -230,8 +229,8 @@
                 <img src="600 dpi cover pic.png" alt="The American Paranormal" class="cover-img">
             </div>
             <h2>The American Paranormal</h2>
-            <p>Tracing 150 years of the search for proof of life after death—from 19th-century séances to modern AI.</p>
-            <div class="btn">Explore Work</div>
+            <p>Tracing the technological and cultural evolution of the search for life after death.</p>
+            <div class="btn">Explore Site</div>
         </a>
 
         <a href="https://skdietrich.github.io/cross/" target="_blank" class="book-card reveal" style="transition-delay: 0.4s;">
@@ -239,22 +238,25 @@
                 <img src="cross_&_swastika_cover.png" alt="Cross & Swastika" class="cover-img">
             </div>
             <h2>Cross & Swastika</h2>
-            <p>Uncovering the controversial history of Orthodox Europe and the recruitment of the Waffen-SS.</p>
-            <div class="btn">Explore Work</div>
+            <p>Exploring the intersection of religious symbolism and political conflict in Orthodox Europe.</p>
+            <div class="btn">Explore Site</div>
         </a>
-    </div>
+    </main>
 
-    <section class="about-section reveal">
-        <div>
-            <img src="profile.jpg" alt="Stephen Dietrich-Kolokouris, PhD." class="profile-pic" onerror="this.src='https://via.placeholder.com/300x400?text=S.K.+Dietrich'">
+    <section id="biography" class="reveal">
+        <div class="profile-container">
+            <img src="Author_Photo_Stephen_Dietrich-Kolokouris.png" alt="Stephen Dietrich-Kolokouris, PhD." class="profile-pic">
         </div>
         <div class="about-text">
-            <h2>About the Author</h2>
+            <h2>The Author</h2>
             <p>
-                Stephen Dietrich-Kolokouris, PhD., is an author and historian whose work bridges the gap between technical rigor and narrative storytelling. With a background as a former police officer and detective, he brings a unique investigative lens to his research.
+                Stephen Dietrich-Kolokouris, PhD., is a distinguished historian and researcher whose work navigates the complex intersections of technology, history, and the unexplained.
             </p>
             <p>
-                His academic pursuits have focused on complex historical intersections, from the dark history of the Chicago Ripper Crew to the evolution of paranormal research in America. As an expert in history and technology, he continues to explore how past events shape our modern understanding of the unexplained.
+                A former police officer and detective, Dr. Dietrich-Kolokouris brings a seasoned investigative discipline to his academic pursuits. His unique perspective—honed through years of decorated service in law enforcement—allows him to dissect historical mysteries and paranormal phenomena with unparalleled analytical depth.
+            </p>
+            <p>
+                He currently focuses on how historical narratives and emerging technologies shape our modern understanding of existence and the supernatural.
             </p>
         </div>
     </section>
