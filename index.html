@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>S.K. Dietrich | Official Author Portal</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/scrollreveal"></script>
     <style>
         :root {
-            --bg: #0a0a0a;
-            --text: #e0e0e0;
-            --accent: #c5a059; /* Elegant Gold */
-            --card-bg: #161616;
+            --bg: #050505;
+            --text: #f0f0f0;
+            --accent: #d4af37; /* Metallic Gold */
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --border: rgba(255, 255, 255, 0.1);
         }
 
         body {
@@ -19,98 +20,112 @@
             color: var(--text);
             font-family: 'Inter', sans-serif;
             margin: 0;
-            line-height: 1.6;
             overflow-x: hidden;
         }
 
         /* Hero Section */
         header {
-            height: 80vh;
+            height: 70vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            border-bottom: 1px solid #333;
-            background: radial-gradient(circle at center, #1a1a1a 0%, #0a0a0a 100%);
+            background: radial-gradient(circle at 50% 50%, #1a1a1a 0%, #050505 100%);
         }
 
         h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 4rem;
+            font-size: clamp(2.5rem, 8vw, 5rem);
             margin: 0;
-            letter-spacing: 2px;
+            letter-spacing: 4px;
             text-transform: uppercase;
+            font-style: italic;
         }
 
         .subtitle {
-            font-size: 1.2rem;
+            font-size: 0.9rem;
             color: var(--accent);
-            letter-spacing: 4px;
-            margin-top: 10px;
+            letter-spacing: 6px;
+            margin-top: 15px;
             text-transform: uppercase;
+            font-weight: 600;
         }
 
-        /* Book Grid */
+        /* Main Grid */
         .container {
             max-width: 1200px;
-            margin: -100px auto 100px;
+            margin: -80px auto 100px;
             padding: 0 20px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
         }
 
         .book-card {
             background: var(--card-bg);
-            padding: 40px;
-            border: 1px solid #222;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(10px);
+            padding: 50px 30px;
+            border: 1px solid var(--border);
             text-decoration: none;
             color: inherit;
             display: flex;
             flex-direction: column;
             align-items: center;
+            transition: all 0.5s ease;
             position: relative;
-            overflow: hidden;
         }
 
         .book-card:hover {
-            transform: translateY(-15px);
             border-color: var(--accent);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            background: rgba(255, 255, 255, 0.07);
+            transform: translateY(-10px);
         }
 
-        .book-card img {
-            width: 200px;
-            height: 300px;
-            background: #222; /* Placeholder */
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-            margin-bottom: 25px;
+        /* Book Cover Styling */
+        .cover-wrapper {
+            width: 220px;
+            height: 330px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.8);
+            transition: transform 0.5s ease;
+        }
+
+        .book-card:hover .cover-wrapper {
+            transform: scale(1.05);
+        }
+
+        .cover-img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
         .book-card h2 {
             font-family: 'Playfair Display', serif;
             font-size: 1.8rem;
-            margin-bottom: 10px;
+            margin: 10px 0;
+            text-align: center;
         }
 
         .book-card p {
             font-weight: 300;
             text-align: center;
-            font-size: 0.95rem;
-            opacity: 0.8;
+            font-size: 0.9rem;
+            opacity: 0.7;
+            max-width: 250px;
         }
 
         .btn {
-            margin-top: 20px;
-            padding: 10px 25px;
+            margin-top: 25px;
+            padding: 12px 30px;
             border: 1px solid var(--accent);
             color: var(--accent);
             text-transform: uppercase;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             letter-spacing: 2px;
+            font-weight: 600;
             transition: 0.3s;
         }
 
@@ -121,14 +136,17 @@
 
         footer {
             text-align: center;
-            padding: 60px 0;
-            font-size: 0.8rem;
-            opacity: 0.5;
-            letter-spacing: 1px;
+            padding: 100px 0 50px;
+            font-size: 0.7rem;
+            opacity: 0.4;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
+        /* Mobile Adjustments */
         @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
+            header { height: 50vh; }
+            .container { margin-top: 20px; }
         }
     </style>
 </head>
@@ -137,45 +155,50 @@
     <header>
         <div class="reveal">
             <h1>S.K. Dietrich</h1>
-            <div class="subtitle">Architect of Worlds</div>
+            <div class="subtitle">Official Author Collection</div>
         </div>
     </header>
 
     <div class="container">
         <a href="https://skdietrich.github.io/RipperCrew/" class="book-card reveal">
-            <img src="https://via.placeholder.com/200x300?text=Ripper+Crew" alt="Ripper Crew Cover">
+            <div class="cover-wrapper">
+                <img src="Chicago_Ripper_Crew_cover_600dpi.jpg" alt="Chicago Ripper Crew" class="cover-img">
+            </div>
             <h2>Ripper Crew</h2>
-            <p>Dive into the darkness of the crew that defied the laws of the street.</p>
-            <div class="btn">Explore Site</div>
+            <p>Exploring the chilling true crime history of the Chicago Ripper Crew.</p>
+            <div class="btn">View Site</div>
         </a>
 
-        <a href="https://skdietrich.github.io/books/" class="book-card reveal" style="transition-delay: 0.2s;">
-            <img src="https://via.placeholder.com/200x300?text=Anthology" alt="Books Collection Cover">
-            <h2>The Collection</h2>
-            <p>A curated archive of published works and literary journeys.</p>
-            <div class="btn">Explore Site</div>
+        <a href="https://skdietrich.github.io/books/" class="book-card reveal" style="transition-delay: 0.1s;">
+            <div class="cover-wrapper">
+                <img src="600 dpi cover pic.png" alt="American Paranormal" class="cover-img">
+            </div>
+            <h2>American Paranormal</h2>
+            <p>A deep dive into the unexplained phenomena across the American landscape.</p>
+            <div class="btn">View Site</div>
         </a>
 
-        <a href="https://skdietrich.github.io/cross/" class="book-card reveal" style="transition-delay: 0.4s;">
-            <img src="https://via.placeholder.com/200x300?text=Cross" alt="Cross Cover">
-            <h2>Cross</h2>
-            <p>A tale of redemption, sacrifice, and the weight of the cross.</p>
-            <div class="btn">Explore Site</div>
+        <a href="https://skdietrich.github.io/cross/" class="book-card reveal" style="transition-delay: 0.2s;">
+            <div class="cover-wrapper">
+                <img src="cross_&_swastika_cover.png" alt="Cross & Swastika" class="cover-img">
+            </div>
+            <h2>Cross & Swastika</h2>
+            <p>A gripping historical narrative of conflict and symbolism.</p>
+            <div class="btn">View Site</div>
         </a>
     </div>
 
     <footer>
-        &copy; 2024 S.K. DIETRICH. ALL RIGHTS RESERVED.
+        &copy; 2026 S.K. DIETRICH &bull; LITERARY WORKS
     </footer>
 
     <script>
-        // Professional Reveal Animation
         ScrollReveal().reveal('.reveal', { 
-            distance: '50px',
-            duration: 1000,
-            easing: 'ease-in-out',
+            distance: '60px',
+            duration: 1200,
+            easing: 'cubic-bezier(0.5, 0, 0, 1)',
             origin: 'bottom',
-            interval: 200 
+            interval: 150 
         });
     </script>
 </body>
