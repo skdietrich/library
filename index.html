@@ -26,9 +26,8 @@
             overflow-x: hidden;
         }
 
-        /* Hero Section */
         header {
-            height: 80vh;
+            height: 75vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -59,29 +58,25 @@
 
         .hero-bio-btn {
             margin-top: 30px;
-            padding: 10px 25px;
+            padding: 12px 30px;
             background: transparent;
             color: var(--text);
             border: 1px solid var(--border);
             text-decoration: none;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             letter-spacing: 2px;
             text-transform: uppercase;
             transition: 0.3s;
         }
 
-        .hero-bio-btn:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-        }
+        .hero-bio-btn:hover { border-color: var(--accent); color: var(--accent); }
 
-        /* Responsive Grid */
         .container {
             max-width: 1200px;
             margin: -60px auto 60px;
             padding: 0 20px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
         }
 
@@ -90,7 +85,6 @@
             backdrop-filter: blur(12px);
             padding: 40px 25px;
             border: 1px solid var(--border);
-            text-decoration: none;
             color: inherit;
             display: flex;
             flex-direction: column;
@@ -98,12 +92,10 @@
             transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
         }
 
-        @media (min-width: 1024px) {
-            .book-card:hover {
-                border-color: var(--accent);
-                background: rgba(212, 175, 55, 0.08);
-                transform: translateY(-15px);
-            }
+        .book-card:hover {
+            border-color: var(--accent);
+            background: rgba(212, 175, 55, 0.05);
+            transform: translateY(-10px);
         }
 
         .cover-wrapper {
@@ -113,11 +105,7 @@
             box-shadow: 0 15px 35px rgba(0,0,0,0.7);
         }
 
-        .cover-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+        .cover-img { width: 100%; height: 100%; object-fit: cover; }
 
         .book-card h2 {
             font-family: 'Playfair Display', serif;
@@ -133,23 +121,29 @@
             font-size: 0.9rem;
             line-height: 1.6;
             opacity: 0.8;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             min-height: 80px;
         }
 
+        .btn-group { display: flex; gap: 10px; width: 100%; }
+
         .btn {
-            padding: 12px 35px;
-            border: 1px solid var(--accent);
-            color: var(--accent);
+            padding: 12px 10px;
+            border: 1px solid var(--border);
+            color: var(--text);
+            text-decoration: none;
             text-transform: uppercase;
             font-size: 0.7rem;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             font-weight: 600;
-            width: 100%;
+            flex: 1;
             text-align: center;
+            transition: 0.3s;
         }
 
-        /* About Section */
+        .btn-buy { border-color: var(--accent); color: var(--accent); background: rgba(212, 175, 55, 0.05); }
+        .btn:hover { background: var(--accent); color: #000; border-color: var(--accent); }
+
         #biography {
             max-width: 1000px;
             margin: 100px auto;
@@ -161,27 +155,10 @@
             align-items: start;
         }
 
-        .about-text h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: var(--accent);
-            margin-top: 0;
-        }
+        .about-text h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--accent); margin-top: 0; }
+        .about-text p { font-weight: 300; line-height: 1.8; opacity: 0.9; margin-bottom: 20px; }
+        .profile-pic { width: 100%; border: 1px solid var(--accent); padding: 10px; }
 
-        .about-text p {
-            font-weight: 300;
-            line-height: 1.8;
-            opacity: 0.9;
-            margin-bottom: 20px;
-        }
-
-        .profile-pic {
-            width: 100%;
-            border: 1px solid var(--accent);
-            padding: 10px;
-        }
-
-        /* Mobile Adjustments */
         @media (max-width: 768px) {
             header { height: 60vh; }
             #biography { grid-template-columns: 1fr; text-align: center; }
@@ -198,20 +175,8 @@
             border-top: 1px solid var(--border);
         }
 
-        .secondary-link {
-            display: inline-block;
-            margin-top: 15px;
-            text-decoration: none;
-            color: var(--text);
-            opacity: 0.3; /* Makes it very faint */
-            transition: 0.3s;
-            font-size: 0.6rem;
-        }
-
-        .secondary-link:hover {
-            opacity: 1;
-            color: var(--accent);
-        }
+        .secondary-link { display: inline-block; margin-top: 15px; text-decoration: none; color: var(--text); opacity: 0.3; transition: 0.3s; font-size: 0.6rem; }
+        .secondary-link:hover { opacity: 1; color: var(--accent); }
     </style>
 </head>
 <body>
@@ -225,32 +190,41 @@
     </header>
 
     <main class="container">
-        <a href="https://skdietrich.github.io/RipperCrew/" target="_blank" class="book-card reveal">
+        <div class="book-card reveal">
             <div class="cover-wrapper">
                 <img src="Chicago_Ripper_Crew_cover_600dpi.jpg" alt="Chicago Ripper Crew" class="cover-img">
             </div>
             <h2>Chicago Ripper Crew</h2>
             <p>An investigative analysis of the gruesome satanic cult killings that shook the city of Chicago.</p>
-            <div class="btn">Explore Site</div>
-        </a>
+            <div class="btn-group">
+                <a href="https://skdietrich.github.io/RipperCrew/" target="_blank" class="btn">View Site</a>
+                <a href="purchase.html#crc" class="btn btn-buy">Buy Book</a>
+            </div>
+        </div>
 
-        <a href="https://skdietrich.github.io/books/" target="_blank" class="book-card reveal" style="transition-delay: 0.2s;">
+        <div class="book-card reveal" style="transition-delay: 0.1s;">
             <div class="cover-wrapper">
                 <img src="600 dpi cover pic.png" alt="The American Paranormal" class="cover-img">
             </div>
             <h2>The American Paranormal</h2>
             <p>Tracing the technological and cultural evolution of the search for life after death.</p>
-            <div class="btn">Explore Site</div>
-        </a>
+            <div class="btn-group">
+                <a href="https://skdietrich.github.io/books/" target="_blank" class="btn">View Site</a>
+                <a href="purchase.html#ap" class="btn btn-buy">Buy Book</a>
+            </div>
+        </div>
 
-        <a href="https://skdietrich.github.io/cross/" target="_blank" class="book-card reveal" style="transition-delay: 0.4s;">
+        <div class="book-card reveal" style="transition-delay: 0.2s;">
             <div class="cover-wrapper">
                 <img src="cross_&_swastika_cover.png" alt="Cross & Swastika" class="cover-img">
             </div>
             <h2>Cross & Swastika</h2>
             <p>Exploring the intersection of religious symbolism and political conflict in Orthodox Europe.</p>
-            <div class="btn">Explore Site</div>
-        </a>
+            <div class="btn-group">
+                <a href="https://skdietrich.github.io/cross/" target="_blank" class="btn">View Site</a>
+                <a href="purchase.html#cs" class="btn btn-buy">Buy Book</a>
+            </div>
+        </div>
     </main>
 
     <section id="biography" class="reveal">
@@ -259,15 +233,9 @@
         </div>
         <div class="about-text">
             <h2>The Author</h2>
-            <p>
-                Stephen Dietrich-Kolokouris, PhD., is a historian and researcher whose work navigates the complex intersections of technology, history, and the unexplained.
-            </p>
-            <p>
-                A former law enforcement officer, Dr. Dietrich-Kolokouris brings trained investigative discipline to his academic pursuits. His unique perspective is influenced by having lived abroad for many years. He earned his PhD. from Johann Wolfgang Goethe University in Frankfurt.
-            </p>
-            <p>
-                He currently focuses on how historical narratives and emerging technologies shape our modern understanding of existence and the supernatural.
-            </p>
+            <p>Stephen Dietrich-Kolokouris, PhD., is a historian and researcher whose work navigates the complex intersections of technology, history, and the unexplained.</p>
+            <p>A former law enforcement officer, Dr. Dietrich-Kolokouris brings trained investigative discipline to his academic pursuits. His unique perspective is influenced by having lived abroad for many years. He earned his PhD. from Johann Wolfgang Goethe University in Frankfurt.</p>
+            <p>He currently focuses on how historical narratives and emerging technologies shape our modern understanding of existence and the supernatural.</p>
         </div>
     </section>
 
@@ -277,14 +245,7 @@
     </footer>
 
     <script>
-        ScrollReveal().reveal('.reveal', { 
-            distance: '40px',
-            duration: 1200,
-            easing: 'cubic-bezier(0.5, 0, 0, 1)',
-            origin: 'bottom',
-            interval: 200,
-            mobile: true 
-        });
+        ScrollReveal().reveal('.reveal', { distance: '40px', duration: 1200, easing: 'cubic-bezier(0.5, 0, 0, 1)', origin: 'bottom', interval: 200, mobile: true });
     </script>
 </body>
 </html>
