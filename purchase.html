@@ -3,134 +3,114 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Choose a Retailer | Dr. Stephen Dietrich-Kolokouris</title>
-  <meta name="robots" content="index,follow" />
+  <title>Purchase Options | Dr. Stephen Dietrich-Kolokouris</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#0b0e14; --card:#111826; --text:#e7edf7; --muted:#a7b3c7;
-      --border:rgba(255,255,255,.10); --accent:#7c5cff;
+      --bg:#050505; --card:rgba(255,255,255,0.03); --text:#f0f0f0; --muted:#a0a0a0;
+      --border:rgba(212, 175, 55, 0.2); --accent:#d4af37;
     }
     *{box-sizing:border-box}
     body{
-      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
-      background: radial-gradient(1200px 700px at 20% 0%, rgba(124,92,255,.25), transparent 60%),
-                  radial-gradient(900px 500px at 90% 10%, rgba(45,212,191,.18), transparent 55%),
-                  var(--bg);
+      margin:0; font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
       color:var(--text);
+      line-height: 1.6;
     }
-    header{max-width:1100px;margin:34px auto 10px;padding:0 18px}
-    h1{margin:0 0 6px;font-size:28px;letter-spacing:.2px}
-    p{margin:0;color:var(--muted);line-height:1.45}
-    main{max-width:1100px;margin:18px auto 56px;padding:0 18px;display:grid;gap:16px}
+    header{max-width:800px;margin:60px auto 40px;padding:0 20px;text-align:center;}
+    h1{font-family: 'Playfair Display', serif; font-size: 32px; letter-spacing: 1px; color: var(--accent); margin-bottom: 10px;}
+    p{margin:0;color:var(--muted); font-weight: 300;}
+    main{max-width:900px;margin:0 auto 80px;padding:0 20px;display:grid;gap:30px}
+    
     .book{
-      border:1px solid var(--border); background: rgba(17,24,38,.82);
-      border-radius:18px; padding:18px;
-      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+      border:1px solid var(--border); background: var(--card);
+      backdrop-filter: blur(10px);
+      border-radius:4px; padding:30px;
+      transition: border-color 0.3s ease;
     }
-    .top{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;flex-wrap:wrap}
-    .title{font-size:20px;margin:0 0 6px}
-    .meta{color:var(--muted);font-size:14px;margin:0 0 4px}
-    .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
-    .chip{font-size:12px;color:var(--muted);border:1px solid var(--border);padding:6px 10px;border-radius:999px}
+    .book:target { border-color: var(--accent); outline: 1px solid var(--accent); } /* Highlights the book clicked from main page */
+
+    .title{font-family: 'Playfair Display', serif; font-size:24px; margin:0 0 10px; color: #fff;}
+    .meta{color:var(--accent); font-size:14px; margin:0 0 15px; text-transform: uppercase; letter-spacing: 2px; font-weight: 600;}
+    
+    .chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:25px}
+    .chip{font-size:11px; color:var(--muted); border:1px solid rgba(255,255,255,0.1); padding:4px 12px; border-radius:2px; text-transform: uppercase; letter-spacing: 1px;}
+    
     .grid{
-      display:grid; gap:10px; margin-top:14px;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      display:grid; gap:12px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
     a.btn{
       display:flex; align-items:center; justify-content:center;
       text-decoration:none; color:var(--text);
       border:1px solid var(--border);
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-      padding:12px 12px; border-radius:14px; font-weight:650;
-      transition: transform .12s ease, border-color .12s ease;
-      min-height:46px;
+      background: transparent;
+      padding:14px; border-radius:2px; font-size: 13px; font-weight:600;
+      text-transform: uppercase; letter-spacing: 1px;
+      transition: all 0.3s ease;
     }
-    a.btn:hover{transform: translateY(-1px); border-color: rgba(124,92,255,.55)}
-    footer{max-width:1100px;margin:0 auto 30px;padding:0 18px;color:var(--muted);font-size:13px}
-    .note{margin-top:10px;color:var(--muted);font-size:13px}
+    a.btn:hover{background: var(--accent); color: #000; border-color: var(--accent);}
+    
+    .back-link { display: block; text-align: center; color: var(--muted); text-decoration: none; font-size: 12px; margin-top: 40px; transition: 0.3s; }
+    .back-link:hover { color: var(--accent); }
+
+    footer{text-align: center; margin: 40px auto; padding: 20px; color:var(--muted); font-size:11px; border-top: 1px solid var(--border); max-width: 400px;}
   </style>
 </head>
 <body>
   <header>
-    <h1>Choose a Retailer</h1>
-    <p>Select where you’d like to purchase. Links open in a new tab.</p>
+    <h1>Authorized Retailers</h1>
+    <p>Select a preferred store to purchase your copy.</p>
   </header>
 
   <main>
-
-    <!-- Chicago Ripper Crew: Reboot -->
     <section class="book" id="crc">
-      <div class="top">
-        <div>
-          <h2 class="title">Chicago Ripper Crew: Reboot</h2>
-          <p class="meta">Stephen Dietrich-Kolokouris</p>
-          <div class="chips">
-            <span class="chip">True Crime</span>
-            <span class="chip">Paperback / eBook</span>
-          </div>
-        </div>
+      <h2 class="title">Chicago Ripper Crew: Reboot</h2>
+      <p class="meta">Stephen Dietrich-Kolokouris</p>
+      <div class="chips">
+        <span class="chip">True Crime</span>
+        <span class="chip">Paperback / eBook</span>
       </div>
       <div class="grid">
-        <a class="btn" href="https://www.amazon.com/Chicago-Ripper-Crew-Stephen-Dietrich-Kolokouris-ebook/dp/B0FDN69F1H" target="_blank" rel="noopener">Amazon</a>
-        <a class="btn" href="https://www.walmart.com/ip/Chicago-Ripper-Crew-Reboot-Paperback-9798288576928/16984502071" target="_blank" rel="noopener">Walmart</a>
-        <a class="btn" href="https://bookshop.org/p/books/chicago-ripper-crew-reboot-stephen-dietrich-kolokouris/c72160612548818e" target="_blank" rel="noopener">Bookshop.org</a>
+        <a class="btn" href="https://www.amazon.com/Chicago-Ripper-Crew-Stephen-Dietrich-Kolokouris-ebook/dp/B0FDN69F1H" target="_blank">Amazon</a>
+        <a class="btn" href="https://www.walmart.com/ip/Chicago-Ripper-Crew-Reboot-Paperback-9798288576928/16984502071" target="_blank">Walmart</a>
+        <a class="btn" href="https://bookshop.org/p/books/chicago-ripper-crew-reboot-stephen-dietrich-kolokouris/c72160612548818e" target="_blank">Bookshop.org</a>
       </div>
-      <p class="note">Tip: you can add more buttons here (e.g., Blackwell’s) if you want additional international options.</p>
     </section>
 
-    <!-- The American Paranormal -->
     <section class="book" id="ap">
-      <div class="top">
-        <div>
-          <h2 class="title">The American Paranormal: Technology, Spiritualism, and the Search for Proof of Life After Death</h2>
-          <p class="meta">Stephen Dietrich-Kolokouris</p>
-          <div class="chips">
-            <span class="chip">Nonfiction</span>
-            <span class="chip">Paperback / eBook</span>
-          </div>
-        </div>
+      <h2 class="title">The American Paranormal</h2>
+      <p class="meta">Stephen Dietrich-Kolokouris</p>
+      <div class="chips">
+        <span class="chip">Nonfiction</span>
+        <span class="chip">Technology & Spiritualism</span>
       </div>
       <div class="grid">
-        <a class="btn" href="https://www.barnesandnoble.com/w/the-american-paranormal-stephen-dietrich-kolokouris/1148733968" target="_blank" rel="noopener">Barnes &amp; Noble</a>
-        <a class="btn" href="https://www.booksamillion.com/p/American-Paranormal/Stephen-Dietrich-Kolokouris/9798269454498" target="_blank" rel="noopener">Books-A-Million</a>
-        <a class="btn" href="https://www.walmart.com/ip/The-American-Paranormal-Technology-Spiritualism-and-the-Search-for-Proof-of-Life-After-Death-Paperback-9798269454498/18330116342" target="_blank" rel="noopener">Walmart</a>
-        <!-- Optional extras:
-        <a class="btn" href="https://bookshop.org/p/books/the-american-paranormal-technology-spiritualism-and-the-search-for-proof-of-life-after-death-stephen-dietrich-kolokouris/3133f5f4f9d0aa30" target="_blank" rel="noopener">Bookshop.org</a>
-        -->
+        <a class="btn" href="https://www.barnesandnoble.com/w/the-american-paranormal-stephen-dietrich-kolokouris/1148733968" target="_blank">Barnes & Noble</a>
+        <a class="btn" href="https://www.booksamillion.com/p/American-Paranormal/Stephen-Dietrich-Kolokouris/9798269454498" target="_blank">Books-A-Million</a>
+        <a class="btn" href="https://www.walmart.com/ip/The-American-Paranormal-Technology-Spiritualism-and-the-Search-for-Proof-of-Life-After-Death-Paperback-9798269454498/18330116342" target="_blank">Walmart</a>
       </div>
     </section>
 
-    <!-- Cross & Swastika -->
     <section class="book" id="cs">
-      <div class="top">
-        <div>
-          <h2 class="title">Cross &amp; Swastika: Orthodox Europe and the Waffen-SS</h2>
-          <p class="meta">Stephen Dietrich-Kolokouris</p>
-          <div class="chips">
-            <span class="chip">History</span>
-            <span class="chip">Paperback</span>
-          </div>
-        </div>
+      <h2 class="title">Cross & Swastika</h2>
+      <p class="meta">Stephen Dietrich-Kolokouris</p>
+      <div class="chips">
+        <span class="chip">History</span>
+        <span class="chip">Waffen-SS Study</span>
       </div>
       <div class="grid">
-        <a class="btn" href="https://www.amazon.com/CROSS-SWASTIKA-ORTHODOX-EUROPE-WAFFEN-SS/dp/B0FCRZRYL1" target="_blank" rel="noopener">Amazon</a>
-        <a class="btn" href="https://www.waterstones.com/book/cross-and-swastika/stephen-dietrich-kolokouris/9798287531225" target="_blank" rel="noopener">Waterstones</a>
-        <a class="btn" href="https://www.thriftbooks.com/w/cross--swastika-orthodox-europe-and-the-waffen-ss/55940946/" target="_blank" rel="noopener">ThriftBooks</a>
-        <!-- Optional extras:
-        <a class="btn" href="https://www.abebooks.co.uk/9798287531225/CROSS-SWASTIKA-ORTHODOX-EUROPE-WAFFEN-SS/plp" target="_blank" rel="noopener">AbeBooks</a>
-        <a class="btn" href="https://www.northshire.com/book/9798287531225" target="_blank" rel="noopener">Northshire Bookstore</a>
-        -->
+        <a class="btn" href="https://www.amazon.com/CROSS-SWASTIKA-ORTHODOX-EUROPE-WAFFEN-SS/dp/B0FCRZRYL1" target="_blank">Amazon</a>
+        <a class="btn" href="https://www.waterstones.com/book/cross-and-swastika/stephen-dietrich-kolokouris/9798287531225" target="_blank">Waterstones</a>
+        <a class="btn" href="https://www.thriftbooks.com/w/cross--swastika-orthodox-europe-and-the-waffen-ss/55940946/" target="_blank">ThriftBooks</a>
       </div>
     </section>
 
+    <a href="index.html" class="back-link">← Return to Author Portal</a>
   </main>
 
   <footer>
-    © <span id="year"></span> Dr. Stephen Dietrich-Kolokouris. Links verified on <strong>January 31, 2026</strong>.
+    © 2026 Stephen Dietrich-Kolokouris, PhD.
   </footer>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
