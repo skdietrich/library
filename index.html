@@ -175,15 +175,10 @@
             margin-bottom: 20px;
         }
 
-        .profile-container {
-            position: relative;
-        }
-
         .profile-pic {
             width: 100%;
             border: 1px solid var(--accent);
             padding: 10px;
-            transition: 0.5s;
         }
 
         /* Mobile Adjustments */
@@ -201,6 +196,21 @@
             letter-spacing: 2px;
             text-transform: uppercase;
             border-top: 1px solid var(--border);
+        }
+
+        .secondary-link {
+            display: inline-block;
+            margin-top: 15px;
+            text-decoration: none;
+            color: var(--text);
+            opacity: 0.3; /* Makes it very faint */
+            transition: 0.3s;
+            font-size: 0.6rem;
+        }
+
+        .secondary-link:hover {
+            opacity: 1;
+            color: var(--accent);
         }
     </style>
 </head>
@@ -253,7 +263,7 @@
                 Stephen Dietrich-Kolokouris, PhD., is a historian and researcher whose work navigates the complex intersections of technology, history, and the unexplained.
             </p>
             <p>
-                A former law enforcement officer, Dr. Dietrich-Kolokouris brings trained investigative discipline to his academic pursuits. His unique perspective influenced by his having lived abroad for many years. He earned a PhD. from Johann Wolfgang Goethe University in Frankfurt.
+                A former law enforcement officer, Dr. Dietrich-Kolokouris brings trained investigative discipline to his academic pursuits. His unique perspective is influenced by having lived abroad for many years. He earned his PhD. from Johann Wolfgang Goethe University in Frankfurt.
             </p>
             <p>
                 He currently focuses on how historical narratives and emerging technologies shape our modern understanding of existence and the supernatural.
@@ -262,7 +272,8 @@
     </section>
 
     <footer>
-        &copy; 2026 Stephen Dietrich-Kolokouris, PhD. &bull; ALL RIGHTS RESERVED
+        &copy; 2026 Stephen Dietrich-Kolokouris, PhD. &bull; ALL RIGHTS RESERVED <br>
+        <a href="https://skdietrich.github.io/The-American-Paranormal/" target="_blank" class="secondary-link">Project: TAP Interface</a>
     </footer>
 
     <script>
@@ -277,5 +288,3 @@
     </script>
 </body>
 </html>
-
-
